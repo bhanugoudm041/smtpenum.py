@@ -11,14 +11,14 @@ def rcptto(username):
         s.recv(1024)
         s.send(b'RCPT TO: ' + user + b'\r\n')
         result = s.recv(1024)
-        print(result)
+        print("RCPT TO", result)
 
 # VRFY a user
 def vrfy(username):
         user = (username).encode()
         s.send(b'VRFY ' + user + b'\r\n')
         result = s.recv(1024)
-        print(result)
+        print("VRFY", result)
 
 # EXPN a user
 def expn(username):
@@ -27,7 +27,7 @@ def expn(username):
         s.recv(1024)
         s.send(b'EXPN ' + user + b'\r\n')
         result = s.recv(1024)
-        print(result)
+        print("EXPN", result)
 
 if len(sys.argv) != 3:
         print("Usage: smtpenum.py <username> <target_ip>")
